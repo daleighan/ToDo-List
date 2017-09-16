@@ -40,7 +40,7 @@ class Page extends React.Component {
       item: this.state.newTask,
       priority: this.state.taskPriority
     })
-    .then((response) => console.log(response))
+    .then((response) => console.log('ToDo Added'))
     .catch((err) => console.log(err));
   }
 
@@ -50,7 +50,6 @@ class Page extends React.Component {
 
   handlePriorityChange(e) {
     this.setState({ taskPriority: e.target.value })
-    console.log(this.state);
   }
 
   handleButtonClick(e) {

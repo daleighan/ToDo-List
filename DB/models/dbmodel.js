@@ -4,11 +4,13 @@ const db = require('../dbconfig.js');
 const Todo = db.define('Todo', {
 	item: {
 		type: Sequelize.STRING,
-		allowNull: false
+		allowNull: false,
+		unique: true
 	},
 	priority: {
 		type: Sequelize.INTEGER,
-		allowNull: true
+		allowNull: true,
+		allowNull: false
 	}
 });
 
