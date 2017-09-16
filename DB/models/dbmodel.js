@@ -20,6 +20,6 @@ Todo.sync().then(() => {
 	console.log('failed to mount');
 })
 
-Todo.create({ item: 'clean', priority: '4'});
+// Todo.create({ item: 'clean', priority: '4'});
 
 module.exports = Todo;

@@ -36,12 +36,14 @@ class Page extends React.Component {
   }
 
   sendToDo() {
-    Axios.post('/todos', {
+    if (this.state.newTask !== '') {
+      Axios.post('/todos', {
       item: this.state.newTask,
       priority: this.state.taskPriority
-    })
-    .then((response) => {})
-    .catch((err) => console.log(err));
+      })
+      .then((response) => {})
+      .catch((err) => console.log(err));
+    }
   }
 
   toDoChange(e) {
