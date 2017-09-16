@@ -7,7 +7,7 @@ class Page extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: window.sampleData,
+      todos: [{"id": 1, "item": "make dinner for the week", "priority": 5}],
       newTask: '',
       taskPriority: 5
     };
@@ -40,19 +40,19 @@ class Page extends React.Component {
       item: this.state.newTask,
       priority: this.state.taskPriority
     })
-    .then((response) => console.log('ToDo Added'))
+    .then((response) => {})
     .catch((err) => console.log(err));
   }
 
-  handleToDoChange(e) {
+  toDoChange(e) {
     this.setState({ newTask: e.target.value })
   }
 
-  handlePriorityChange(e) {
+  priorityChange(e) {
     this.setState({ taskPriority: e.target.value })
   }
 
-  handleButtonClick(e) {
+  buttonClick(e) {
     this.sendToDo();
     this.getAllTodos();
   }
@@ -61,7 +61,9 @@ class Page extends React.Component {
     return (
       <div>
         <h1>Alex's ToDo List</h1>
-          <div className="newentry"><AddTask onClick={this.handleButtonClick.bind(this)} onValueChange={this.handlePriorityChange.bind(this)} onToDoChange={this.handleToDoChange.bind(this)} /></div>
+          <div className="newentry">
+            <AddTask onClick={this.buttonClick.bind(this)} onValueChange={this.priorityChange.bind(this)} onToDoChange={this.toDoChange.bind(this)} />
+          </div>
           <div className="todolist"><ToDoList todos={this.state.todos} /></div>
       </div>
     );
@@ -69,8 +71,4 @@ class Page extends React.Component {
 }
 export default Page;
 
-window.sampleData = [{
-  "id": 1,
-  "item": "make dinner for the week",
-  "priority": 5
-}];
+
