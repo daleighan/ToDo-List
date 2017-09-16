@@ -6,9 +6,9 @@ class ToDoList extends Component {
 		super(props);
 
 	}
-  
-  render(props) {
-  	console.log(this.props.todos)
+
+
+  render() {
   	return (
   		<ul className="list">
   			  {this.props.todos.map((todo) => {

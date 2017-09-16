@@ -8,7 +8,7 @@ class Entry extends Component {
   
   render() {
   	return (
-  		<li><span className="task">{this.props.todo.item}</span><span className="priorty">  {this.props.todo.priority}</span></li>
+  		<li><span className="task">{this.props.todo.item}</span><span className="priorty">{this.props.todo.priority}</span></li>
   	)
   }
 }
