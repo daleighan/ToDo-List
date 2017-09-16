@@ -20,9 +20,19 @@ class Page extends React.Component {
   getAllTodos() {
     Axios.get('/todos')
     .then(data => {
-      this.setState({ todos: data.data });
+      this.setState({ todos: data.data.sort(this.comparePriorities) });
     })
     .catch((err) => console.log(err));
+  }
+
+  comparePriorities(a, b) {
+    if (a.priority < b.priority) {
+      return 1;
+    }
+    if (a.priority > b.priority) {
+      return -1;
+    }
+    return 0;
   }
 
   sendToDo() {
