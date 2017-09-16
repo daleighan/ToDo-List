@@ -1,5 +1,6 @@
 import React from 'react';
-import ToDoList from './ToDoList.js'
+import ToDoList from './ToDoList.js';
+import Axios from 'axios';
 
 class Page extends React.Component {
   constructor() {
@@ -9,8 +10,20 @@ class Page extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.getAllTodos();
+  }
+
+  getAllTodos() {
+    Axios.get('/todos')
+    .then(data => {
+      console.log(data);
+      this.setState({ todos: data.data });
+    })
+  }
+
+
   render() {
-    
     return (
       <div>
         <h1>Alex's ToDo List</h1>
