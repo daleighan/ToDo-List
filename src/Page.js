@@ -9,7 +9,7 @@ class Page extends React.Component {
     this.state = {
       todos: window.sampleData,
       newTask: '',
-      taskPriority: ''
+      taskPriority: 5
     };
   }
 
@@ -35,21 +35,24 @@ class Page extends React.Component {
   }
 
   handleToDoChange(e) {
-    console.log(e.target.value);
     this.setState({ newTask: e.target.value })
   }
 
   handlePriorityChange(e) {
-    console.log(e.target.value);
     this.setState({ taskPriority: e.target.value })
+    console.log(this.state);
   }
 
+  handleButtonClick(e) {
+    this.sendToDo();
+    this.getAllTodos();
+  }
 
   render() {
     return (
       <div>
         <h1>Alex's ToDo List</h1>
-          <div className="newentry"><AddTask onValueChange={this.handlePriorityChange.bind(this)} onToDoChange={this.handleToDoChange.bind(this)} /></div>
+          <div className="newentry"><AddTask onClick={this.handleButtonClick.bind(this)} onValueChange={this.handlePriorityChange.bind(this)} onToDoChange={this.handleToDoChange.bind(this)} /></div>
           <div className="todolist"><ToDoList todos={this.state.todos} /></div>
       </div>
     );

@@ -14,10 +14,10 @@ module.exports.getTodos = (req, res) => {
 module.exports.postTodos = (req, res) => {
 	Todos.create({
 		item: req.body.item,
-		age: req.body.priority
+		priority: req.body.priority
 	})
 	.then((user) => {
-		res.status(201).send('todo received')
+		res.status(201).send(req.body);
 	})
 	.catch(() => {
 		console.log('error in posting');

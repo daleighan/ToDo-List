@@ -17,7 +17,7 @@ class AddTask extends Component {
 					<option value="2">2</option>
 					<option value="1">1</option>
 				</select>
-					<span className="add">New ToDo</span>
+					<span className="add" onClick={this.props.onClick}>New ToDo</span>
 			</div>
 		)
 	}
